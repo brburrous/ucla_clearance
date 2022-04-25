@@ -69,7 +69,9 @@
                 finalDate = getFormattedDate(date);
                 console.log(finalDate);
                 dateString = document.getElementsByClassName("date")[0];
-                dateString.innerHTML = finalDate;
+                let height = screen.height;
+                // dateString.innerHTML = finalDate;
+                dateString.innerHTML = height;
             });
         </script>
     </div>
