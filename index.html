@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: red;
+            font-family: TradeGothic, sans-serif;
+            margin-left: -540px;
+            margin-top: -1080px;
+            position: absolute;
+            height: 2160px;
+            width: 1080px;
+            left: 50%;
+            top: 50%;
+            background-image: url("ucla_clearance.png");
+            background-repeat: no-repeat;
+        }
+
+        .date {
+            font-size: 100px;
+            font-weight: bold;
+            position: absolute;
+            top: 760px;
+            margin-left: auto;
+            margin-right: auto;
+            align-items: center;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div style="display:flex; justify-content: center;">
+
+        <div class="date">
+            05/29/2032
+        </div>
+        <script src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <script>
+            function getFormattedDate(date) {
+                var year = date.getFullYear();
+
+                var month = (1 + date.getMonth()).toString();
+                month = month.length > 1 ? month : '0' + month;
+
+                var day = date.getDate().toString();
+                day = day.length > 1 ? day : '0' + day;
+
+                return month + '/' + day + '/' + year;
+            }
+            $.get("http://worldtimeapi.org/api/timezone/America/Los_Angeles", function (data) {
+                var date = new Date(data.datetime);
+                finalDate = getFormattedDate(date);
+                console.log(finalDate);
+                dateString = document.getElementsByClassName("date")[0];
+                dateString.innerHTML = finalDate;
+            });
+        </script>
+    </div>
+</body>
+
+</html>
