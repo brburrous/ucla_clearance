@@ -56,7 +56,7 @@
 
                 return month + '/' + day + '/' + year;
             }
-            $.get("http://worldtimeapi.org/api/timezone/America/Los_Angeles", function (data) {
+            $.get("https://worldtimeapi.org/api/timezone/America/Los_Angeles", function (data) {
                 var date = new Date(data.datetime);
                 finalDate = getFormattedDate(date);
                 console.log(finalDate);
